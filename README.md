@@ -36,7 +36,7 @@ Set the following in `test1/.env`:
 - `AUTH_DAILY_MESSAGE_LIMIT` — signed-in daily AI generation cap; defaults to 100.
 - `TRUST_PROXY` — leave `false` for direct/local connections. Set it to the number of trusted reverse-proxy hops (commonly `1`) only when the API is behind that proxy, so IP-based rate limits use the client IP safely.
 
-Set `NEXT_PUBLIC_API_URL` in `test1fe/.env` to the backend origin, without `/api`, for example `http://localhost:8690`.
+Set `NEXT_PUBLICAPI_URL` in `test1fe/.env` to the backend origin, without `/api`, for example `http://localhost:8690`.
 
 The environment loader accepts the existing `DB_STRING`, `CorsUrl`, and `OPENROUTER_*` names as migration aliases. Do not commit `.env` files.
 
