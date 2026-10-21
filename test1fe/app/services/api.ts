@@ -54,8 +54,8 @@ type ApiErrorBody = {
 };
 
 function getApiBaseUrl() {
-    const configuredUrl = process.env.NEXT_PUBLIC_API_URL;
-    if (!configuredUrl) throw new Error("NEXT_PUBLIC_API_URL is not configured.");
+    const configuredUrl = process.env.NEXT_PUBLICAPI_URL;
+    if (!configuredUrl) throw new Error("NEXT_PUBLICAPI_URL is not configured.");
     const baseUrl = configuredUrl.replace(/\/+$/, "");
     return baseUrl.endsWith("/api") ? baseUrl : `${baseUrl}/api`;
 }
@@ -70,7 +70,7 @@ async function fetchEndpoint(path: string, init: RequestInit, versioned: boolean
         return await fetch(getEndpoint(path, versioned), { ...init, credentials: "include" });
     } catch {
         if (init.signal?.aborted) throw new DOMException("Request was cancelled", "AbortError");
-        throw new Error("Could not connect to the API. Check that the backend is running and NEXT_PUBLIC_API_URL is correct.");
+        throw new Error("Could not connect to the API. Check that the backend is running and NEXT_PUBLICAPI_URL is correct.");
     }
 }
 
